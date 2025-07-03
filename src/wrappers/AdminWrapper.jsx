@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLoaderData } from "react-router"
-import NavBar from "../components/Navbar"
+import NavBar from "../components/NavBar"
 
 const AdminWrapper = () => {
 

@@ -15,13 +15,25 @@ import AdminWrapper from "./wrappers/AdminWrapper"
 import AdminDashboard from "./pages/admin/AdminDashboard"
 import ManagerWrapper from "./wrappers/ManagerWrapper"
 import ManagerDashboard from "./pages/manager/ManagerDashboard"
+import MenuItem from "./pages/MenuItem"
+import menuItemLoader from "./loaders/unit/menuItemLoader"
+import OrderItem from "./components/OrderItem"
+import orderItemLoader from "./loaders/unit/orderItemLoader"
+import UserProfile from "./components/UserProfile"
+import Users from "./pages/admin/Users"
+import userLoader from "./loaders/unit/userLoader"
+import Restaurants from "./pages/admin/Restaurants"
+import restaurantLoader from "./loaders/unit/restaurantLoader"
+import NewRestaurant from "./pages/admin/newRestaurant"
+import MyOrders from "./pages/user/MyOrders"
+import orderLoader from "./loaders/unit/orderLoader"
+import AllOrder from "./pages/manager/AllOrder"
+import allOrderLoader from "./loaders/unit/allOrderLoader"
 
 const routes = [
   {
     path: "/",
     element: <LayoutWrapper />,
-    loader: authLoader,
-    hydrateFallbackElement: <div>Loading...</div>,
     children: [
       {
         index: true,
@@ -38,6 +50,12 @@ const routes = [
       {
         path: "verifypage",
         element: <VerifyPage />
+      },
+      {
+        path: "menuItems",
+        element: <MenuItem />,
+        loader: menuItemLoader,
+        hydrateFallbackElement: <div>Loading menu items...</div>
       }
     ]
   },
@@ -49,7 +67,27 @@ const routes = [
     children: [
       {
         index: true,
-        element: <UserDashboard />
+        element: <UserDashboard />,
+        loader: authLoader,
+        hydrateFallbackElement: <div>Loading Dashboard...</div>
+      },
+      {
+        path: "profile",
+        element: <UserProfile />,
+        loader: authLoader,
+        hydrateFallbackElement: <div>Loading Profile...</div>
+      },
+      {
+        path: "orderItems",
+        element: <OrderItem />,
+        loader: orderItemLoader,
+        hydrateFallbackElement: <div>Loading Menu Items...</div>
+      },
+      {
+        path: "myOrders",
+        element: <MyOrders />,
+        loader: orderLoader,
+        hydrateFallbackElement: <div>Loading Orders...</div>
       },
       {
         path: "logout",
@@ -65,7 +103,25 @@ const routes = [
     children: [
       {
         index: true,
-        element: <AdminDashboard />
+        element: <AdminDashboard />,
+        loader: authLoader,
+        hydrateFallbackElement: <div>Loading Dashboard...</div>
+      },
+      {
+        path: "manageUsers",
+        element: <Users />,
+        loader: userLoader,
+        hydrateFallbackElement: <div>Loading Users...</div>
+      },
+      {
+        path: "manageRestaurants",
+        element: <Restaurants />,
+        loader: restaurantLoader,
+        hydrateFallbackElement: <div>Loading Restaurants...</div>
+      },
+      {
+        path: "createRestaurant",
+        element: <NewRestaurant />
       },
       {
         path: "logout",
@@ -81,7 +137,21 @@ const routes = [
     children: [
       {
         index: true,
-        element: <ManagerDashboard />
+        element: <ManagerDashboard />,
+        loader: authLoader,
+        hydrateFallbackElement: <div>Loading Dashboard...</div>
+      },
+      {
+        path: "profile",
+        element: <UserProfile />,
+        loader: authLoader,
+        hydrateFallbackElement: <div>Loading Profile...</div>
+      },
+      {
+        path: "manageOrders",
+        element: <AllOrder />,
+        loader: allOrderLoader,
+        hydrateFallbackElement: <div>Loading All Orders...</div>
       },
       {
         path: "logout",

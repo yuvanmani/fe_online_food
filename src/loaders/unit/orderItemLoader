@@ -1,0 +1,13 @@
+import orderItemServices from "../../services/orderItemServices"
+
+const orderItemLoader = async () => {
+    try {
+        const response = await orderItemServices.getAllOrderItems();
+        return response.data;
+    }
+    catch (error) {
+        return [];
+    }
+}
+
+export default orderItemLoader

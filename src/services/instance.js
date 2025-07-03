@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseURL = "http://127.0.0.1:3001/api/v1";
+const baseURL = "https://be-online-food.onrender.com/api/v1";
 
 const instance = axios.create({
     baseURL,
